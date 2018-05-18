@@ -1,0 +1,32 @@
+<div class="container" id="main-content" style="display: block;">
+	<div class="row" style="margin: 50 0 50 0px">
+	  <div class="col-md-12 text-center">
+	    <h2>Sign In</h2>
+	  </div>
+	</div>
+
+	<div class="card bg-light mb-3 mx-auto" id="storage" style="max-width:90%;">
+	  <div class="card-header"><b>Step 2:</b> Login with your registered email & password</div>
+	  <div class="card-body p-3">
+			<%= form_for(@user, url: '/session/check') do |form| %>
+				<div class="form-row p-1">
+				  <%= form.label :email %>
+				  <%= form.text_field :email, class: "form-control" %>
+				</div>
+				<div class="form-row p-1">
+				  <%= form.label :password %>
+				  <%= form.password_field :password, class: "form-control" %>
+				</div>
+				<div class="form-group p-3" style="width: 100%; text-align: center;">
+				  <%= form.submit 'Sign in', class: "btn btn-primary" %>
+				  <%= link_to 'Sign up', session_create_path, class: "btn btn-secondary" %>
+				</div>
+
+				<% if @user.errors.any? %>
+					<%= render 'layouts/form_messages', form_messages: @user.errors %>
+				<% end %>
+			<% end %>
+	  </div>
+	</div>
+</div>
+

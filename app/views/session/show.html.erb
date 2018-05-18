@@ -1,0 +1,25 @@
+<div class="container" id="main-content" style="display: block;">
+	<div class="row" style="margin: 50 0 50 0px">
+	  <div class="col-md-12 text-center">
+	    <h2>Hey, <%= @user.name %>! </h2>
+	    <p>You've succesfully signed in. What'd you like to do?</p>
+
+	    <p><%= link_to 'Sign out', session_destroy_path %></p>
+	    <p><%= link_to 'Create a template', template_upload_path %></p>
+	    <p><%= link_to 'Share a template', template_share_path %></p>
+
+    	</ul>
+	  </div>
+	</div>
+
+	<% unless @user.templates.empty? %>
+		<table>
+			<th>
+				<td>S.No</td>
+				<td>Document</td>
+				<td>Shared by</td>
+				<td>Shared with</td>
+			</th>
+		</table>
+	<% end %>
+</div>

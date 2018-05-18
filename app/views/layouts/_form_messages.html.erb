@@ -1,0 +1,10 @@
+<%# Rails flash messages styled for Bootstrap 4.0 %>
+
+<ul>
+	<% form_messages.each do |field, msg| %>
+	  <li class="alert alert-danger" role="alert">
+    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    	<%= content_tag :div, "#{field} #{msg}", :id => "flash_#{field}" %>
+  	</li>
+	<% end %>
+</ul>

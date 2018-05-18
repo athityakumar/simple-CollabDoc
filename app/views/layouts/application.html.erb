@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Rails Bootstrap" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="jumbotron" style="text-align: center;">
+      <h1 class="display-3">CollabDoc</h1>
+      <p class="lead">Peer to peer agreements on the Ethereum blockchain.</p>
+    </div>
+  
+    <%= yield %>
+
+          <footer class="page-footer font-small bg-primary pt-0" style="margin-top:50px">
+      
+              <!--Footer Links-->
+              <div class="container">
+      
+                  <!--Grid row-->
+                  <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+      
+                    <!--Grid column-->
+                    <div class="col-md-2 mb-3">
+                        <h3 class="title font-weight-bold" style="color:white">CollabDoc</h3>
+                    </div>
+                    <!--Grid column-->
+      
+                  </div>
+                  <!--Grid row-->
+      
+                  <hr class="white" style="margin: 0 15%;">
+      
+                  <!--Grid row-->
+                  <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+      
+                      <!--Grid column-->
+                      <div class="col-md-8 col-12 mt-5">
+                          <p style="line-height: 1.7rem; color:white">
+                            CollabDoc is intended to be a decentralized PoC alternative to products like DocuSign.
+                          </p>
+      
+                      </div>
+                      <!--Grid column-->
+      
+                  </div>
+                  <!--Grid row-->
+      
+                  <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+      
+      
+              </div>
+              <!--/Footer Links-->
+      
+              <!--Copyright-->
+<!--               <div class="footer-copyright py-3 text-center">
+                  <div class="container-fluid" style="color:white">
+                    © 2018 Created by <a href="https://atchai.com"> atchai.com </a>
+                  </div>
+              </div>
+ -->              <!--/Copyright-->
+      
+          </footer>
+          <!--/Footer-->
+    
+    
+  
+  
+  </body>
+</html>
