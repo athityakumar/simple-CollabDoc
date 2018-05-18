@@ -1,0 +1,47 @@
+<div class="container" id="main-content" style="display: block;">
+	<div class="row" style="margin: 50 0 50 0px">
+	  <div class="col-md-12 text-center">
+	    <h2>Hey <%= @user.name %>! </h2>
+	    <p>You've succesfully signed in. <%= link_to 'Wanna sign out?', session_destroy_path %></p>
+	  </div>
+	</div>
+
+	<div class="card bg-light mb-3 mx-auto" id="storage" style="max-width:90%;">
+	  <div class="card-header"><b>Select a document to see more details</b></div>
+
+		<table class="table card-body p-3">
+	  	<thead>
+	  		<td>S.No</td>
+	  		<td>Document name</td>
+	  		<td>Signees</td>
+	  		<td>Your status</td>
+	  		<td>Document status</td>
+	  	</thead>
+
+	  	<tbody>
+		  	<% @documents.each_with_index do |d, i| %>
+			  	<tr>
+					  <td><%= i+1 %></td>
+					  <td><%= link_to d.template.name, document_show_path(document_id: d.id) %></td>
+					  <td><%= d.users.map(&:name).join(", ") %> </td>
+					  <td>
+	 					<% if UserDocument.where(user_id: session[:user_id], document_id: d.id)[0].submitted %>
+	 						Signed
+					  <% else %>
+						  Pending
+					  <% end %>
+						</td>
+						<td>
+							<% if UserDocument.where(document_id: d.id).any? { |ud| !ud.submitted } %>
+								Incomplete
+							<% else %>
+								Everyone has signed
+							<% end %>
+						</td>
+					</tr>
+		  	<% end %>
+		  </tbody>
+	  </table>
+	  </div>
+	</div>
+</div>

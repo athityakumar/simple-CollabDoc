@@ -10,6 +10,25 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+
+.dataTables_length label {
+  padding: 10px;
+}
+.dataTables_filter {
+  padding: 10px;
+  margin-top: -50px;
+}
+.dataTables_info {
+  padding: 10px;
+}
+
+.dataTables_paginate {
+  margin-top: -30px !important;;
+}
+.paging_simple_numbers > a {
+  padding: 20px;
+  top: -20px !important;;
+}

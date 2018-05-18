@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/session/show', 'session#show'
   get '/session/destroy', 'session#destroy'
 
+	get '/session/logo', to: 'session#logo'
+
   get  '/template/upload', 'template#upload'
   post '/template/upload', 'template#upload'
 
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
 
   get  '/document/share', 'document#share'
   post '/document/share', 'document#share'
+
+  get '/document/index', 'document#index'
 
   get '/document/show/:document_id', to: 'document#show', as: 'document_show'
   get '/document/sign/:document_id', to: 'document#sign', as: 'document_sign'

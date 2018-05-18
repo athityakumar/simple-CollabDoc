@@ -44,4 +44,10 @@ class SessionController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :password_digest)
 	end
+
+	def logo
+		@document = Document.find(params[:document_id])
+		page = params[:page]
+    send_file "storage/#{@document.template.filepath}/#{page}.png", type: 'image/png', disposition: 'inline'
+	end
 end

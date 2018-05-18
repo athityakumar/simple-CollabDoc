@@ -29,7 +29,8 @@ class DocumentController < ApplicationController
 
   	@document = Document.find(params[:document_id])
  		@image_urls = @document.template.rel_image_paths
- 		@agreed = UserDocument.where(user_id: session[:user_id], document_id: @document.id)[0].submitted
+ 		matching_doc = UserDocument.where(user_id: session[:user_id], document_id: @document.id)
+ 		@agreed = matching_doc ? matching_doc[0].submitted : false
   end
 
   def sign
@@ -38,6 +39,11 @@ class DocumentController < ApplicationController
   	UserDocument.where(user_id: user_id, document_id: document_id).update(submitted: true)
 
   	redirect_to document_show_path
+  end
+
+  def index
+		@user = User.find(session[:user_id])
+		@documents = @user.documents
   end
 
   private
