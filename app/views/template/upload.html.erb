@@ -1,11 +1,6 @@
-<div class="container" id="main-content" style="display: block;">
-	<div class="row" style="margin: 50 0 50 0px">
-	  <div class="col-md-12 text-center">
-	    <h2>Hey <%= @user.name %>! </h2>
-	    <p>You've succesfully signed in. <%= link_to 'Wanna sign out?', session_destroy_path %></p>
-	  </div>
-	</div>
+<%= render 'layouts/navigation' %>
 
+<div class="container" id="main-content" style="display: block;">
 	<div class="card bg-light mb-3 mx-auto" id="storage" style="max-width:90%;">
 	  <div class="card-header"><b>Step 3:</b> Upload a template</div>
 	  <div class="card-body p-3">

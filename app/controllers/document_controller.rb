@@ -20,6 +20,7 @@ class DocumentController < ApplicationController
 				@document.users << [signee]
 			end
 
+			@document.users << [@user]
 			redirect_to document_show_path(document_id: @document.id)
   	end
   end
@@ -29,8 +30,6 @@ class DocumentController < ApplicationController
 
   	@document = Document.find(params[:document_id])
  		@image_urls = @document.template.rel_image_paths
- 		matching_doc = UserDocument.where(user_id: session[:user_id], document_id: @document.id)
- 		@agreed = matching_doc ? matching_doc[0].submitted : false
   end
 
   def sign
