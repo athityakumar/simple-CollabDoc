@@ -27,4 +27,7 @@ Rails.application.routes.draw do
 
   get '/document/show/:document_id', to: 'document#show', as: 'document_show'
   get '/document/sign/:document_id', to: 'document#sign', as: 'document_sign'
+
+  get '/admin/documents', to: 'admin#documents'
+  get '/admin/users', to: 'admin#users'
 end

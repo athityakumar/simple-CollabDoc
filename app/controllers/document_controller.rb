@@ -1,5 +1,6 @@
 class DocumentController < ApplicationController
   def share
+  	redirect_to session_create_path unless (session[:user_id] or session[:admin])
 		@user = User.find(session[:user_id])
 
 		if params[:template_id]
@@ -26,7 +27,7 @@ class DocumentController < ApplicationController
   end
 
   def show
-		@user = User.find(session[:user_id])
+		@user = session[:admin] ? spoof_admin_user : User.find(session[:user_id])
 
   	@document = Document.find(params[:document_id])
  		@image_urls = @document.template.rel_image_paths
